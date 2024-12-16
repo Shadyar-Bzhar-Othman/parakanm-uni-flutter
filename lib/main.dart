@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:parakanm_uni/screens/layout_screen.dart';
+import 'package:parakanm_uni/screens/splash_screen.dart';
 import 'package:parakanm_uni/utils/colors.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class ParakanmApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: "Poppins",
       ),
-      home: const LayoutScreen(),
+      home: const SplashScreen(),
     );
   }
 }

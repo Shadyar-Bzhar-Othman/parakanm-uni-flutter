@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:parakanm_uni/screens/transaction_detail_screen.dart';
 import 'package:parakanm_uni/utils/colors.dart';
 import 'package:parakanm_uni/utils/data.dart';
 import 'package:parakanm_uni/utils/types.dart';
 import 'package:parakanm_uni/utils/utils.dart';
 
-class TransactionCard extends StatelessWidget {
-  final Map<String, dynamic> transaction;
-
-  const TransactionCard({
+class TransactionDetailScreen extends StatelessWidget {
+  const TransactionDetailScreen({
     super.key,
     required this.transaction,
   });
+
+  final Map<String, dynamic> transaction;
 
   Map<String, dynamic> getTransactionCategory(int id) {
     return categories.firstWhere((element) => element["id"] == id);
@@ -20,30 +19,44 @@ class TransactionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => TransactionDetailScreen(
-              transaction: transaction,
-            ),
-          ),
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 8.0,
-          horizontal: 16.0,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    final category = getTransactionCategory(transaction['categoryId']);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(transaction['title'] ?? 'Transaction Details'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      transaction['title'],
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      transaction['date'],
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
                 Container(
-                  width: 70,
-                  height: 70,
+                  width: 60,
+                  height: 60,
                   decoration: BoxDecoration(
                     color: transaction['type'] == TransactionType.income
                         ? greenColor20
@@ -53,8 +66,8 @@ class TransactionCard extends StatelessWidget {
                   child: Center(
                     child: SvgPicture.asset(
                       getTransactionCategory(transaction["categoryId"])["icon"],
-                      height: 40,
-                      width: 40,
+                      height: 35,
+                      width: 35,
                       colorFilter: ColorFilter.mode(
                         transaction['type'] == TransactionType.income
                             ? greenColor60
@@ -64,34 +77,20 @@ class TransactionCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      transaction["title"],
-                      style: const TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      transaction["date"],
-                      style: const TextStyle(
-                        color: textColor,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
+            Divider(),
+            Text(
+              transaction['details'],
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            Divider(),
             Text(
               getAmountText(transaction['amount']),
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 24,
                 fontWeight: FontWeight.w900,
               ),
             ),

@@ -74,6 +74,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 1,
     "type": TransactionType.income,
     "title": "Shopping",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 100000,
     "date": "2022-01-01",
   },
@@ -83,6 +85,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 2,
     "type": TransactionType.expense,
     "title": "Food",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 20000,
     "date": "2022-01-02",
   },
@@ -92,6 +96,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 3,
     "type": TransactionType.income,
     "title": "Transport",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 5000,
     "date": "2022-01-03",
   },
@@ -101,6 +107,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 4,
     "type": TransactionType.income,
     "title": "Health",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 30000,
     "date": "2022-01-04",
   },
@@ -110,6 +118,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 5,
     "type": TransactionType.expense,
     "title": "Education",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 40000,
     "date": "2022-01-05",
   },
@@ -119,6 +129,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 6,
     "type": TransactionType.expense,
     "title": "Entertainment",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 60000,
     "date": "2022-01-06",
   },
@@ -128,6 +140,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 7,
     "type": TransactionType.income,
     "title": "Others",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 70000,
     "date": "2022-01-07",
   },
@@ -137,6 +151,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 1,
     "type": TransactionType.income,
     "title": "Shopping",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 100000,
     "date": "2022-01-08",
   },
@@ -146,6 +162,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 2,
     "type": TransactionType.income,
     "title": "Food",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 20000,
     "date": "2022-01-09",
   },
@@ -155,6 +173,8 @@ const List<Map<String, dynamic>> transactions = [
     "categoryId": 3,
     "type": TransactionType.income,
     "title": "Transport",
+    "details":
+        "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
     "amount": 5000,
     "date": "2022-01-10",
   },

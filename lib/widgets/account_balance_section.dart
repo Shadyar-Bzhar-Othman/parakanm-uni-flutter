@@ -3,22 +3,23 @@ import 'package:parakanm_uni/utils/assets.dart';
 import 'package:parakanm_uni/utils/colors.dart';
 import 'package:parakanm_uni/utils/data.dart';
 import 'package:parakanm_uni/utils/types.dart';
+import 'package:parakanm_uni/utils/utils.dart';
 import 'package:parakanm_uni/widgets/balance_card.dart';
 
 class AccountBalanceSection extends StatelessWidget {
   const AccountBalanceSection({super.key});
 
-  String getTotalAmount() {
+  int getTotalAmount() {
     double totalAmount = 0;
 
     for (int i = 0; i < transactions.length; i++) {
       totalAmount += transactions[i]['amount'];
     }
 
-    return totalAmount.toInt().toString();
+    return totalAmount.toInt();
   }
 
-  String getTotalIncomes() {
+  int getTotalIncomes() {
     double totalIncomes = 0;
 
     for (int i = 0; i < transactions.length; i++) {
@@ -27,10 +28,10 @@ class AccountBalanceSection extends StatelessWidget {
       }
     }
 
-    return totalIncomes.toInt().toString();
+    return totalIncomes.toInt();
   }
 
-  String getTotalExpenses() {
+  int getTotalExpenses() {
     double totalExpenses = 0;
 
     for (int i = 0; i < transactions.length; i++) {
@@ -39,7 +40,7 @@ class AccountBalanceSection extends StatelessWidget {
       }
     }
 
-    return totalExpenses.toInt().toString();
+    return totalExpenses.toInt();
   }
 
   @override
@@ -56,7 +57,7 @@ class AccountBalanceSection extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         Text(
-          getTotalAmount(),
+          getAmountText(getTotalAmount()),
           style: TextStyle(
             color: textColor,
             fontSize: 32,
@@ -71,13 +72,13 @@ class AccountBalanceSection extends StatelessWidget {
               color: greenColor100,
               icon: incomeIcon,
               title: "Income",
-              amount: getTotalIncomes(),
+              amount: getAmountText(getTotalIncomes()),
             ),
             BalanceCard(
               color: redColor100,
               icon: expenseIcon,
               title: "Expense",
-              amount: getTotalExpenses(),
+              amount: getAmountText(getTotalExpenses()),
             ),
           ],
         ),
