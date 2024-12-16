@@ -8,6 +8,8 @@ class TransactionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, dynamic>> userTransactions = getCurrentUserTransactions();
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,16 +26,26 @@ class TransactionScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          ListView.builder(
-            itemCount: transactions.length,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index) {
-              return TransactionCard(
-                transaction: transactions[index],
-              );
-            },
-          ),
+          userTransactions.isEmpty
+              ? Center(
+                  child: Text(
+                    "No transactions yet",
+                    style: TextStyle(
+                      color: textColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: userTransactions.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return TransactionCard(
+                      transaction: userTransactions[index],
+                    );
+                  },
+                ),
         ],
       ),
     );

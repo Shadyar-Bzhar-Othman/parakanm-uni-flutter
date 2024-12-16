@@ -18,5 +18,8 @@ const String transportIcon = "${iconPath}transport.svg";
 const String othersIcon = "${iconPath}others.svg";
 
 // Other Icons
+const String nameIcon = "${iconPath}username.png";
+const String emailIcon = "${iconPath}mail.png";
+const String passwordIcon = "${iconPath}lock.png";
 const String incomeIcon = "${iconPath}income.svg";
 const String expenseIcon = "${iconPath}expense.svg";

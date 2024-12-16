@@ -10,21 +10,23 @@ class AccountBalanceSection extends StatelessWidget {
   const AccountBalanceSection({super.key});
 
   int getTotalAmount() {
+    List<Map<String, dynamic>> userTransactions = getCurrentUserTransactions();
     double totalAmount = 0;
 
-    for (int i = 0; i < transactions.length; i++) {
-      totalAmount += transactions[i]['amount'];
+    for (int i = 0; i < userTransactions.length; i++) {
+      totalAmount += userTransactions[i]['amount'];
     }
 
     return totalAmount.toInt();
   }
 
   int getTotalIncomes() {
+    List<Map<String, dynamic>> userTransactions = getCurrentUserTransactions();
     double totalIncomes = 0;
 
-    for (int i = 0; i < transactions.length; i++) {
-      if (transactions[i]["type"] == TransactionType.income) {
-        totalIncomes += transactions[i]['amount'];
+    for (int i = 0; i < userTransactions.length; i++) {
+      if (userTransactions[i]["type"] == TransactionType.income) {
+        totalIncomes += userTransactions[i]['amount'];
       }
     }
 
@@ -32,11 +34,12 @@ class AccountBalanceSection extends StatelessWidget {
   }
 
   int getTotalExpenses() {
+    List<Map<String, dynamic>> userTransactions = getCurrentUserTransactions();
     double totalExpenses = 0;
 
-    for (int i = 0; i < transactions.length; i++) {
-      if (transactions[i]["type"] == TransactionType.expense) {
-        totalExpenses += transactions[i]['amount'];
+    for (int i = 0; i < userTransactions.length; i++) {
+      if (userTransactions[i]["type"] == TransactionType.expense) {
+        totalExpenses += userTransactions[i]['amount'];
       }
     }
 

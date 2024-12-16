@@ -21,7 +21,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
   List<Widget> pages = [
     const HomeScreen(),
     const TransactionScreen(),
-    const AddScreen(),
+    AddScreen(),
     const AnalysisScreen(),
     const SettingScreen(),
   ];

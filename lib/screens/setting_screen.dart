@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parakanm_uni/utils/data.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -6,7 +7,7 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Setting Page"),
+      child: Text(currentUser["name"]),
     );
   }
 }

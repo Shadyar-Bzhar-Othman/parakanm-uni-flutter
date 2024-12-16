@@ -1,14 +1,9 @@
 import 'package:parakanm_uni/utils/assets.dart';
 import 'package:parakanm_uni/utils/types.dart';
 
-const Map<String, dynamic> currentUser = {
-  "id": 1,
-  "name": "Shadyar",
-  "email": "shadyar@gmail.com",
-  "password": "12121212",
-};
+Map<String, dynamic> currentUser = {};
 
-const List<Map<String, dynamic>> accounts = [
+List<Map<String, dynamic>> accounts = [
   {
     "id": 1,
     "name": "Shadyar",
@@ -29,7 +24,7 @@ const List<Map<String, dynamic>> accounts = [
   },
 ];
 
-const List<Map<String, dynamic>> categories = [
+List<Map<String, dynamic>> categories = [
   {
     "id": 1,
     "name": "Shopping",
@@ -67,10 +62,10 @@ const List<Map<String, dynamic>> categories = [
   }
 ];
 
-const List<Map<String, dynamic>> transactions = [
+List<Map<String, dynamic>> transactions = [
   {
     "id": 1,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 1,
     "type": TransactionType.income,
     "title": "Shopping",
@@ -81,7 +76,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 2,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 2,
     "type": TransactionType.expense,
     "title": "Food",
@@ -92,7 +87,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 3,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 3,
     "type": TransactionType.income,
     "title": "Transport",
@@ -103,7 +98,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 4,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 4,
     "type": TransactionType.income,
     "title": "Health",
@@ -114,7 +109,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 5,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 5,
     "type": TransactionType.expense,
     "title": "Education",
@@ -125,7 +120,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 6,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 6,
     "type": TransactionType.expense,
     "title": "Entertainment",
@@ -136,7 +131,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 7,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 7,
     "type": TransactionType.income,
     "title": "Others",
@@ -147,7 +142,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 8,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 1,
     "type": TransactionType.income,
     "title": "Shopping",
@@ -158,7 +153,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 9,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 2,
     "type": TransactionType.income,
     "title": "Food",
@@ -169,7 +164,7 @@ const List<Map<String, dynamic>> transactions = [
   },
   {
     "id": 10,
-    "userId": 1,
+    "userId": 2,
     "categoryId": 3,
     "type": TransactionType.income,
     "title": "Transport",
@@ -179,3 +174,13 @@ const List<Map<String, dynamic>> transactions = [
     "date": "2022-01-10",
   },
 ];
+
+List<Map<String, dynamic>> getCurrentUserTransactions() {
+  if (currentUser.isEmpty || !currentUser.containsKey("id")) {
+    return [];
+  }
+
+  return transactions
+      .where((transaction) => transaction["userId"] == currentUser["id"])
+      .toList();
+}

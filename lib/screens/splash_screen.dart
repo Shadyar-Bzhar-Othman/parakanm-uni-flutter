@@ -1,7 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:parakanm_uni/screens/layout_screen.dart';
+import 'package:parakanm_uni/screens/login_screen.dart';
 import 'package:parakanm_uni/utils/colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const LayoutScreen(),
+          builder: (context) => LoginScreen(),
         ),
       ),
     );
