@@ -184,3 +184,23 @@ List<Map<String, dynamic>> getCurrentUserTransactions() {
       .where((transaction) => transaction["userId"] == currentUser["id"])
       .toList();
 }
+
+double getIncomePercentage() {
+  final userTransactions = getCurrentUserTransactions();
+  final totalAmount = userTransactions.fold<int>(
+      0, (sum, transaction) => sum + transaction["amount"] as int);
+  final incomeAmount = userTransactions
+      .where((transaction) => transaction["type"] == TransactionType.income)
+      .fold<int>(0, (sum, transaction) => sum + transaction["amount"] as int);
+  return totalAmount == 0 ? 0 : (incomeAmount / totalAmount) * 100;
+}
+
+double getExpensePercentage() {
+  final userTransactions = getCurrentUserTransactions();
+  final totalAmount = userTransactions.fold<int>(
+      0, (sum, transaction) => sum + transaction["amount"] as int);
+  final expenseAmount = userTransactions
+      .where((transaction) => transaction["type"] == TransactionType.expense)
+      .fold<int>(0, (sum, transaction) => sum + transaction["amount"] as int);
+  return totalAmount == 0 ? 0 : (expenseAmount / totalAmount) * 100;
+}
