@@ -10,12 +10,10 @@ class AccountBalanceSection extends StatelessWidget {
   const AccountBalanceSection({super.key});
 
   int getTotalAmount() {
-    List<Map<String, dynamic>> userTransactions = getCurrentUserTransactions();
-    double totalAmount = 0;
+    int totalIncomes = getTotalIncomes();
+    int totalExpenses = getTotalExpenses();
 
-    for (int i = 0; i < userTransactions.length; i++) {
-      totalAmount += userTransactions[i]['amount'];
-    }
+    int totalAmount = totalIncomes - totalExpenses;
 
     return totalAmount.toInt();
   }
@@ -62,7 +60,7 @@ class AccountBalanceSection extends StatelessWidget {
         Text(
           getAmountText(getTotalAmount()),
           style: TextStyle(
-            color: textColor,
+            color: getTotalAmount() < 0 ? redColor100 : textColor,
             fontSize: 32,
             fontWeight: FontWeight.bold,
           ),

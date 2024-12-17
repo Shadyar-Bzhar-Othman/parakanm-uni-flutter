@@ -83,16 +83,26 @@ class _AnalysisScreenState extends State<AnalysisScreen> {
           const SizedBox(
             height: 10,
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: filteredTransactions.length,
-            itemBuilder: (context, index) {
-              return TransactionCard(
-                transaction: filteredTransactions[index],
-              );
-            },
-          ),
+          filteredTransactions.isEmpty
+              ? Center(
+                  child: Text(
+                    "No transactions yet",
+                    style: TextStyle(
+                      color: textColor,
+                      fontSize: 16,
+                    ),
+                  ),
+                )
+              : ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: filteredTransactions.length,
+                  itemBuilder: (context, index) {
+                    return TransactionCard(
+                      transaction: filteredTransactions[index],
+                    );
+                  },
+                ),
         ],
       ),
     );

@@ -4,7 +4,7 @@ const String iconPath = "assets/icons/";
 // Images
 const String avatarBoy = "${imagePath}avatar-boy.jpg";
 const String key = "${imagePath}key.png";
-const String categoryIcon = "${iconPath}others.svg";
+const String categoryIcon = "${iconPath}categories.svg";
 const String lockIcon = "${iconPath}lock.svg";
 const String logoutIcon = "${iconPath}log-out.svg";
 
